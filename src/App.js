@@ -23,7 +23,7 @@ function App() {
   return (
     <AppStyled>
       <Sidebar />
-      {searchResults ? <Main searchResults={searchResults} /> : <div>hang on</div>}
+      {searchResults ? <Main searchResults={searchResults} /> : <div>hang on!</div>}
     </AppStyled>
   );
 }
