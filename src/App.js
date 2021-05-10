@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react';
+import { getPositions } from './helpers/jobsAPI';
+import Sidebar from './components/Sidebar';
+import { AppStyled } from './AppStyled';
+import Main from './components/Main';
+import jobpositionData from './jobpositionsData.json';
 
 function App() {
+  // @scftodo getting cors errors locally
+  // useEffect(() => {
+  //   const searchObj = {
+  //     description: 'python',
+  //     fullTime: true,
+  //     location: 'sf',
+  //   };
+  //
+  //   const results = getPositions(searchObj);
+  // }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AppStyled>
+      <Sidebar />
+      <Main jobpositionData={jobpositionData} />
+    </AppStyled>
   );
 }
 
