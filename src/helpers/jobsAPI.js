@@ -12,12 +12,8 @@ export const getPositions = async ({ description, fullTime, location }) => {
   }
 
   const apiUrl = `https://jobs.github.com/positions.json?${query}`;
-  console.log(apiUrl, 'fdsfdsfds');
   try {
-    const response = await fetch(apiUrl, {
-      method: 'GET',
-      mode: 'no-cors',
-    });
+    const response = await fetch(apiUrl);
     return await response.json();
   } catch (e) {
     console.error('We have the error', e);

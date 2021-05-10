@@ -6,21 +6,24 @@ import Main from './components/Main';
 import jobpositionData from './jobpositionsData.json';
 
 function App() {
-  // @scftodo getting cors errors locally
-  // useEffect(() => {
-  //   const searchObj = {
-  //     description: 'python',
-  //     fullTime: true,
-  //     location: 'sf',
-  //   };
-  //
-  //   const results = getPositions(searchObj);
-  // }, []);
+  const [searchResults, setSearchResults] = useState(null);
+
+  useEffect(() => {
+    const searchObj = {
+      description: 'python',
+      fullTime: true,
+      location: 'sf',
+    };
+
+    const res = getPositions(searchObj).then((jobs) => {
+      setSearchResults(jobs);
+    });
+  }, []);
 
   return (
     <AppStyled>
       <Sidebar />
-      <Main jobpositionData={jobpositionData} />
+      {searchResults ? <Main searchResults={searchResults} /> : <div>hang on</div>}
     </AppStyled>
   );
 }

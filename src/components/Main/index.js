@@ -3,10 +3,10 @@ import React from 'react';
 import { MainStyled } from '~/components/Main/MainStyled';
 import JobsList from '~/components/JobsList';
 
-const Main = ({ jobpositionData }) => {
+const Main = ({ searchResults }) => {
   return (
     <MainStyled>
-      <JobsList jobpositionData={jobpositionData} />
+      <JobsList searchResults={searchResults} />
     </MainStyled>
   );
 };
