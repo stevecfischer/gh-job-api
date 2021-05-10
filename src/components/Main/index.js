@@ -1,12 +1,14 @@
 import React from 'react';
 
-import { MainStyled } from '~/components/Main/MainStyled';
-import JobsList from '~/components/JobsList';
+import { MainStyled } from './MainStyled';
+import JobsList from '../JobsList';
 
 const Main = ({ searchResults }) => {
   return (
     <MainStyled>
-      <JobsList searchResults={searchResults} />
+      <div className="main-container">
+        <JobsList searchResults={searchResults} />
+      </div>
     </MainStyled>
   );
 };

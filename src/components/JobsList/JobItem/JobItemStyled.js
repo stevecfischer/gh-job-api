@@ -4,7 +4,6 @@ export const JobItemStyled = styled.div`
   ${() => {
     return css`
       width: 790px;
-      height: 114px;
       background: #ffffff;
       box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
       border-radius: 4px;
@@ -26,8 +25,7 @@ export const JobItemStyled = styled.div`
       }
 
       .detail-container {
-        display: flex;
-        flex-direction: column;
+        width: 100%;
       }
 
       .company-name {
@@ -47,7 +45,6 @@ export const JobItemStyled = styled.div`
       .job-details-container {
         display: flex;
         flex-direction: row;
-        //justify-content: space-between;
         width: 100%;
       }
 
@@ -59,14 +56,14 @@ export const JobItemStyled = styled.div`
         border: 1px solid #334680;
         box-sizing: border-box;
         border-radius: 4px;
-        display: flex;
       }
 
       .job-meta-container {
-        width: 200px;
         display: flex;
         flex-direction: row;
         align-items: center;
+        justify-content: space-between;
+        width: 300px;
       }
 
       .locations {

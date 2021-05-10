@@ -12,7 +12,7 @@ function App() {
     const searchObj = {
       description: 'python',
       fullTime: true,
-      location: 'sf',
+      location: '28210',
     };
 
     const res = getPositions(searchObj).then((jobs) => {
