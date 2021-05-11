@@ -16,15 +16,29 @@ function App() {
 
   useEffect(() => {
     const searchObj = {
-      description: 'node',
-      fullTime: false,
-      // location: 'sf', // denver
+      // description: 'node',
+      // fullTime: false,
+      location: 'sf', // denver
     };
 
     const res = getPositions(searchObj).then((jobs) => {
       setSearchResults(jobs);
     });
   }, []);
+
+  useEffect(() => {
+    if (locationRadio) {
+      const searchObj = {
+        // description: 'node',
+        // fullTime: false,
+        location: locationRadio, // denver
+      };
+
+      const res = getPositions(searchObj).then((jobs) => {
+        setSearchResults(jobs);
+      });
+    }
+  }, [locationRadio]);
 
   useEffect(() => {
     if (searchResults) {
@@ -42,7 +56,7 @@ function App() {
 
   const handleOnLocationOptionChange = (e) => {
     console.log(e.target.value, 'handleOnFullTimeChange');
-    setIsFullTime(!isFullTime);
+    setLocationRadio(e.target.value);
   };
 
   return (
@@ -51,7 +65,6 @@ function App() {
         isFullTime={isFullTime}
         handleOnFullTimeChange={handleOnFullTimeChange}
         handleOnLocationOptionChange={handleOnLocationOptionChange}
-        setLocationRadio={setLocationRadio}
       />
       <MainStyled>
         <div className="main-container">

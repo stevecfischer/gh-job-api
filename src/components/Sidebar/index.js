@@ -47,7 +47,7 @@ export const SidebarStyled = styled.div`
   }}
 `;
 
-const Sidebar = ({ handleOnLocationOptionChange, handleOnFullTimeChange, setLocationRadio, isFullTime }) => {
+const Sidebar = ({ handleOnLocationOptionChange, handleOnFullTimeChange, isFullTime }) => {
   console.log(isFullTime, 'isFullTime');
 
   return (
