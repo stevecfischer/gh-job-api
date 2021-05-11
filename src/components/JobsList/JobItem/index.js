@@ -2,7 +2,7 @@ import React from 'react';
 import { JobItemStyled } from './JobItemStyled';
 
 // eslint-disable-next-line react/prop-types
-const JobItem = ({ item }) => {
+const JobItem = ({ item, setSelectedJobId }) => {
   // eslint-disable-next-line react/prop-types
   const { id, company, company_logo: companyLogo, title, type, location, created_at: createdAt } = item;
   return (
@@ -12,7 +12,9 @@ const JobItem = ({ item }) => {
       </div>
       <div className="detail-container">
         <div className="company-name">{company}</div>
-        <div className="job-title">{title}</div>
+        <div className="job-title" onClick={() => setSelectedJobId(id)}>
+          {title}
+        </div>
         <div className="job-details-container">
           <div className="fulltime">{type}</div>
           <div className="job-meta-container">

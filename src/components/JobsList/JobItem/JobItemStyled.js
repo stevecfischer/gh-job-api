@@ -40,6 +40,7 @@ export const JobItemStyled = styled.div`
         font-size: 18px;
         color: #334680;
         margin-bottom: 12px;
+        cursor: pointer;
       }
 
       .job-details-container {

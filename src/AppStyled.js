@@ -6,7 +6,7 @@ export const AppStyled = styled.div`
       background-color: #f6f7fb;
       display: flex;
       flex-wrap: wrap;
-      color: #e7e7eb;
+      color: #334680;
 
       input,
       label,

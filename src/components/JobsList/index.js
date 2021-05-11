@@ -2,12 +2,12 @@ import React from 'react';
 import JobItem from './JobItem/index';
 
 // eslint-disable-next-line react/prop-types
-const JobsList = ({ searchResults }) => {
+const JobsList = ({ searchResults, setSelectedJobId }) => {
   return (
     <>
       {searchResults &&
         searchResults.map((item, index) => {
-          return <JobItem item={item} key={item.id} />;
+          return <JobItem setSelectedJobId={setSelectedJobId} item={item} key={item.id} />;
         })}
     </>
   );
