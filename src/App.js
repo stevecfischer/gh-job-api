@@ -11,6 +11,8 @@ function App() {
   const [searchResults, setSearchResults] = useState(null);
   const [selectedJobId, setSelectedJobId] = useState(null);
   const [selectedJob, setSelectedJob] = useState(null);
+  const [locationRadio, setLocationRadio] = useState(null);
+  const [isFullTime, setIsFullTime] = useState(null);
 
   useEffect(() => {
     const searchObj = {
@@ -33,9 +35,24 @@ function App() {
     }
   }, [selectedJobId]);
 
+  const handleOnFullTimeChange = (value) => {
+    console.log(value, 'handleOnFullTimeChange');
+    setIsFullTime(!isFullTime);
+  };
+
+  const handleOnLocationOptionChange = (e) => {
+    console.log(e.target.value, 'handleOnFullTimeChange');
+    setIsFullTime(!isFullTime);
+  };
+
   return (
     <AppStyled>
-      <Sidebar />
+      <Sidebar
+        isFullTime={isFullTime}
+        handleOnFullTimeChange={handleOnFullTimeChange}
+        handleOnLocationOptionChange={handleOnLocationOptionChange}
+        setLocationRadio={setLocationRadio}
+      />
       <MainStyled>
         <div className="main-container">
           {selectedJob && <JobDetails selectedJob={selectedJob} />}
