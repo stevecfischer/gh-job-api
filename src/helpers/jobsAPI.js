@@ -1,4 +1,4 @@
-export const getPositions = async ({ description, fullTime, location }) => {
+export const getPositions = async ({ description, fullTime, location, pageNumber }) => {
   let query = '';
 
   if (description) {
@@ -12,7 +12,7 @@ export const getPositions = async ({ description, fullTime, location }) => {
     query += `location=${location}&`;
   }
 
-  const apiUrl = `https://jobs.github.com/positions.json?${query}`;
+  const apiUrl = `https://jobs.github.com/positions.json?${query}page=${pageNumber}`;
   try {
     const response = await fetch(apiUrl);
     return await response.json();

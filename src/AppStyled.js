@@ -6,13 +6,21 @@ export const AppStyled = styled.div`
       background-color: #f6f7fb;
       color: #334680;
       padding-top: 50px;
-      height: 100vh;
+      padding-bottom: 200px;
 
       .container {
         width: 1200px;
         margin: auto;
         display: flex;
         flex-wrap: wrap;
+      }
+
+      footer {
+        width: 1200px;
+        margin: 0 auto 200px;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
       }
 
       input,

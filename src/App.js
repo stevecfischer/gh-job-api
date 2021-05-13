@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Pagination from './components/Pagination';
 import SidebarJob from './components/SidebarJob';
 import Header from './components/Header';
 import { getPositions } from './helpers/jobsAPI';
@@ -17,18 +18,20 @@ function App() {
   const [searchDesc, setSearchDesc] = useState('');
   const [searchFT, setSearchFT] = useState(false);
   const [searchLoc, setSearchLoc] = useState('');
+  const [pageNumber, setPageNumber] = useState(1);
 
   useEffect(() => {
     const searchObj = {
       description: searchDesc,
       fullTime: searchFT,
       location: searchLoc, // denver
+      pageNumber,
     };
 
     const res = getPositions(searchObj).then((jobs) => {
       setSearchResults(jobs);
     });
-  }, [searchLoc, searchFT, searchDesc]);
+  }, [searchLoc, searchFT, searchDesc, pageNumber]);
 
   useEffect(() => {
     if (searchResults && selectedJobId !== null) {
@@ -42,23 +45,24 @@ function App() {
   }, [selectedJobId]);
 
   const handleOnFullTimeChange = (value) => {
-    console.log(value, 'handleOnFullTimeChange');
     setSearchFT(!searchFT);
   };
 
   const handleOnLocRadioChange = (e) => {
-    console.log(e.target.value, 'handleOnFullTimeChange');
     setSearchLoc(e.target.value);
   };
 
   const handleOnDescChange = (keyword) => {
-    console.log(keyword, 'keyword');
     setSearchDesc(keyword);
   };
 
   const handleOnLocInputChange = (locstring) => {
-    console.log(locstring, 'locstring');
     setSearchLoc(locstring);
+  };
+
+  const handleOnClickPage = (selectedPage) => {
+    if (selectedPage === pageNumber) return;
+    setPageNumber(selectedPage);
   };
 
   return (
@@ -85,6 +89,9 @@ function App() {
           </div>
         </MainStyled>
       </div>
+      <footer>
+        <Pagination pageNumber={pageNumber} handleOnClickPage={handleOnClickPage} />
+      </footer>
     </AppStyled>
   );
 }
