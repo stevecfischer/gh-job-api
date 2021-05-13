@@ -4,27 +4,34 @@ export const AppStyled = styled.div`
   ${() => {
     return css`
       background-color: #f6f7fb;
-      display: flex;
-      flex-wrap: wrap;
       color: #334680;
+      padding-top: 50px;
+      height: 100vh;
+
+      .container {
+        width: 1200px;
+        margin: auto;
+        display: flex;
+        flex-wrap: wrap;
+      }
 
       input,
       label,
       select,
       button,
       textarea {
-        margin: 0;
-        border: 0;
-        padding: 0;
-        display: inline-block;
-        vertical-align: middle;
-        white-space: normal;
-        background: none;
-        line-height: 1;
-
-        /* Browsers have different default form fonts */
-        font-size: 13px;
-        font-family: Arial;
+        //margin: 0;
+        //border: 0;
+        //padding: 0;
+        //display: inline-block;
+        //vertical-align: middle;
+        //white-space: normal;
+        //background: none;
+        //line-height: 1;
+        //
+        ///* Browsers have different default form fonts */
+        //font-size: 13px;
+        //font-family: Arial;
       }
 
       /* Remove the stupid outer glow in Webkit */

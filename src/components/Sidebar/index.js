@@ -1,71 +1,46 @@
-import React from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
+import _ from 'lodash';
+import { SidebarStyled } from './SidebarStyled';
 
-import styled, { css } from 'styled-components';
+const Sidebar = ({ handleOnLocInputChange, handleOnLocRadioChange, handleOnFullTimeChange, searchFT }) => {
+  const [userQuery, setUserQuery] = useState('');
 
-export const SidebarStyled = styled.div`
-  ${() => {
-    return css`
-      padding-top: 40px;
-      flex-basis: 33%;
-      flex-grow: 1;
+  const updateQuery = () => {
+    // A search query api call.
+    console.log(userQuery, 'userquery');
+    handleOnLocInputChange(userQuery);
+  };
 
-      .sidebar-container {
-        width: 80%;
-        margin: 0 auto;
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        justify-content: flex-start;
-      }
+  const delayedQuery = useCallback(_.debounce(updateQuery, 1000), [userQuery]);
 
-      .row {
-        width: 100%;
-      }
+  const onChange = (e) => {
+    setUserQuery(e.target.value);
+  };
 
-      .row--fulltime {
-        margin-bottom: 30px;
-      }
+  useEffect(() => {
+    if (userQuery === '') return;
+    delayedQuery();
 
-      .title {
-        color: #b9bdcf;
-        margin-bottom: 15px;
-      }
-
-      .location-search {
-        margin-bottom: 25px;
-      }
-
-      .location-radio {
-        display: flex;
-        flex-direction: column;
-      }
-
-      .location-radio-container {
-        margin-bottom: 15px;
-      }
-    `;
-  }}
-`;
-
-const Sidebar = ({ handleOnLocationOptionChange, handleOnFullTimeChange, isFullTime }) => {
-  console.log(isFullTime, 'isFullTime');
+    // Cancel the debounce on useEffect cleanup.
+    return delayedQuery.cancel;
+  }, [userQuery, delayedQuery]);
 
   return (
     <SidebarStyled>
       <div className="sidebar-container">
         <div className="row row--fulltime">
-          <input
-            type="checkbox"
-            name="fulltime"
-            checked={isFullTime}
-            onChange={() => handleOnFullTimeChange(isFullTime)}
-          />{' '}
+          <input type="checkbox" name="fulltime" checked={searchFT} onChange={() => handleOnFullTimeChange(searchFT)} />{' '}
           <span>Full Time</span>
         </div>
         <div className="row row-location">
           <div className="title">Location</div>
-          <input className="location-search" placeholder="City, State, zipcode.." />
-          <div className="location-radio" onChange={(e) => handleOnLocationOptionChange(e)}>
+          <input
+            className="location-search"
+            placeholder="Utica, Denver, SF, 13057"
+            onChange={onChange}
+            value={userQuery}
+          />
+          <div className="location-radio" onChange={(e) => handleOnLocRadioChange(e)}>
             <div className="location-radio-container">
               <input type="radio" value="denver" name="city" /> Denver
             </div>

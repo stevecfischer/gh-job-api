@@ -2,14 +2,14 @@ export const getPositions = async ({ description, fullTime, location }) => {
   let query = '';
 
   if (description) {
-    query += `description=${description}`;
+    query += `description=${description}&`;
   }
-  if (fullTime) {
-    query += 'full_time=true';
+  if (fullTime !== null) {
+    query += `full_time=${fullTime}&`;
   }
 
   if (location) {
-    query += `location=${location}`;
+    query += `location=${location}&`;
   }
 
   const apiUrl = `https://jobs.github.com/positions.json?${query}`;

@@ -50,13 +50,18 @@ export const JobItemStyled = styled.div`
       }
 
       .fulltime {
-        width: 55px;
+        width: 61px;
         margin-right: auto;
         font-size: 12px;
         color: #334680;
         border: 1px solid #334680;
         box-sizing: border-box;
         border-radius: 4px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 30px;
       }
 
       .job-meta-container {

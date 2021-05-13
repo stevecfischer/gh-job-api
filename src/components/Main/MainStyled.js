@@ -10,11 +10,6 @@ export const MainStyled = styled.div`
       display: flex;
       flex-direction: column;
       align-items: center;
-
-      .main-container {
-        width: 80%;
-        margin: 0 auto;
-      }
     `;
   }}
 `;
