@@ -1,0 +1,35 @@
+{
+    "paths": [
+        {
+            "name": "/jobs",
+            "lambdaFunction": "jobfunction",
+            "privacy": {
+                "open": true
+            },
+            "policyResourceName": "/jobs"
+        }
+    ],
+    "resourceName": "scfserver",
+    "apiName": "scfserver",
+    "functionArns": [
+        {
+            "lambdaFunction": "jobfunction"
+        }
+    ],
+    "privacy": {
+        "auth": 0,
+        "unauth": 0,
+        "authRoleName": "amplify-amplify6a3baacfc4d74-staging-144514-authRole",
+        "unAuthRoleName": "amplify-amplify6a3baacfc4d74-staging-144514-unauthRole"
+    },
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "jobfunction",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        }
+    ]
+}

@@ -37,6 +37,7 @@ export const JobItemStyled = styled.div`
       }
 
       .job-title {
+        cursor: pointer;
         font-size: 18px;
         color: #334680;
         margin-bottom: 12px;
@@ -75,13 +76,25 @@ export const JobItemStyled = styled.div`
       .locations {
         font-size: 12px;
         color: #b9bdcf;
+        display: flex;
+        align-items: center;
+      }
+
+      .locations svg.MuiSvgIcon-root {
+        width: 20px;
+        margin-right: 10px;
       }
 
       .date-posted {
         font-size: 12px;
-        /* identical to box height */
-
         color: #b9bdcf;
+        display: flex;
+        align-items: center;
+      }
+
+      .date-posted svg.MuiSvgIcon-root {
+        width: 20px;
+        margin-right: 10px;
       }
     `;
   }}

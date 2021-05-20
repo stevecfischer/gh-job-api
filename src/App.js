@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { connect } from 'react-redux';
 import Pagination from './components/Pagination';
 import SidebarJob from './components/SidebarJob';
 import Header from './components/Header';
@@ -90,7 +91,9 @@ function App() {
         </MainStyled>
       </div>
       <footer>
-        <Pagination pageNumber={pageNumber} handleOnClickPage={handleOnClickPage} />
+        {searchResults && !selectedJobId && (
+          <Pagination pageNumber={pageNumber} handleOnClickPage={handleOnClickPage} />
+        )}
       </footer>
     </AppStyled>
   );

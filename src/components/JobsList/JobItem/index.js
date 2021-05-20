@@ -1,5 +1,8 @@
 import React from 'react';
+import PublicIcon from '@material-ui/icons/Public';
+import AccessTimeIcon from '@material-ui/icons/AccessTime';
 import { JobItemStyled } from './JobItemStyled';
+import getDate from '../../../helpers/getDate';
 
 // eslint-disable-next-line react/prop-types
 const JobItem = ({ item, setSelectedJobId }) => {
@@ -18,8 +21,12 @@ const JobItem = ({ item, setSelectedJobId }) => {
         <div className="job-details-container">
           <div className="fulltime">{type}</div>
           <div className="job-meta-container">
-            <div className="locations">{location}</div>
-            <div className="date-posted">{createdAt}</div>
+            <div className="locations">
+              <PublicIcon width="20px" /> {location}
+            </div>
+            <div className="date-posted">
+              <AccessTimeIcon /> {getDate(createdAt)}
+            </div>
           </div>
         </div>
       </div>

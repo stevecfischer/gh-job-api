@@ -9,14 +9,14 @@ const SidebarJob = ({ selectedJob, setSelectedJobId }) => {
   return (
     <SidebarStyled>
       <div className="sidebar-container sidebar-container--job">
-        <div className="row row--fulltime">
+        <div className="row row--back-to-search">
           <div className="back-to-search" onClick={() => setSelectedJobId(null)}>
-            Back to search
+            &larr; Back to search
           </div>
         </div>
-        <div className="row row-location">
-          <div className="title">How to apply</div>
-          <div className="how-to-apply" dangerouslySetInnerHTML={{ __html: howToApply }} />
+        <div className="row row--how-to-apply">
+          <div className="how-to-apply-title">HOW TO APPLY</div>
+          <div className="how-to-apply-link" dangerouslySetInnerHTML={{ __html: howToApply }} />
         </div>
       </div>
     </SidebarStyled>

@@ -12,7 +12,6 @@ export const AppStyled = styled.div`
         width: 1200px;
         margin: auto;
         display: flex;
-        flex-wrap: wrap;
       }
 
       footer {
@@ -28,18 +27,18 @@ export const AppStyled = styled.div`
       select,
       button,
       textarea {
-        //margin: 0;
-        //border: 0;
-        //padding: 0;
-        //display: inline-block;
-        //vertical-align: middle;
-        //white-space: normal;
-        //background: none;
-        //line-height: 1;
-        //
-        ///* Browsers have different default form fonts */
-        //font-size: 13px;
-        //font-family: Arial;
+        margin: 0;
+        border: 0;
+        padding: 0;
+        display: inline-block;
+        vertical-align: middle;
+        white-space: normal;
+        background: none;
+        line-height: 1;
+
+        /* Browsers have different default form fonts */
+        font-size: 13px;
+        font-family: Arial;
       }
 
       /* Remove the stupid outer glow in Webkit */
@@ -72,6 +71,11 @@ export const AppStyled = styled.div`
         -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;
         box-sizing: border-box;
+        background-color: #1e86ff;
+        border-radius: 4px;
+        padding: 15px 40px;
+        color: #fff;
+        font-size: 16px;
       }
 
       /* Text Inputs

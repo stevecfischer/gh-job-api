@@ -11,6 +11,7 @@ export const PaginationStyled = styled.div`
       align-content: center;
 
       .box {
+        cursor: pointer;
         width: 36px;
         padding: 10px;
         border: 1px solid #b7bcce;
@@ -18,6 +19,13 @@ export const PaginationStyled = styled.div`
         border-radius: 4px;
         margin-right: 10px;
         text-align: center;
+        background-color: transparent;
+        color: #b9bdcf;
+      }
+
+      .box.active {
+        background-color: #1e86ff;
+        color: #fff;
       }
     `;
   }}
@@ -39,7 +47,7 @@ const Pagination = ({ handleOnClickPage, pageNumber }) => {
       >
         {'<'}
       </button>
-      <button type="button" className="box" onClick={() => handleOnClickPage(1)}>
+      <button type="button" className="box active" onClick={() => handleOnClickPage(1)}>
         1
       </button>
       <button type="button" className="box" onClick={() => handleOnClickPage(2)}>

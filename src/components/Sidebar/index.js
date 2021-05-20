@@ -33,19 +33,21 @@ const Sidebar = ({ handleOnLocInputChange, handleOnLocRadioChange, handleOnFullT
           <span>Full Time</span>
         </div>
         <div className="row row-location">
-          <div className="title">Location</div>
-          <input
-            className="location-search"
-            placeholder="Utica, Denver, SF, 13057"
-            onChange={onChange}
-            value={userQuery}
-          />
+          <div className="title">LOCATION</div>
+          <div className="location-input-container">
+            <input
+              className="location-search"
+              placeholder="Utica, Denver, SF, 13057"
+              onChange={onChange}
+              value={userQuery}
+            />
+          </div>
           <div className="location-radio" onChange={(e) => handleOnLocRadioChange(e)}>
             <div className="location-radio-container">
-              <input type="radio" value="denver" name="city" /> Denver
+              <input className="location-radio-inputs" type="radio" value="denver" name="city" /> Denver
             </div>
             <div className="location-radio-container">
-              <input type="radio" value="sf" name="city" /> San Francisco
+              <input className="location-radio-inputs" type="radio" value="sf" name="city" /> San Francisco
             </div>
           </div>
         </div>
