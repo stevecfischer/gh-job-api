@@ -5,7 +5,7 @@ import JobItem from './JobItem/index';
 const JobsList = ({ searchResults, setSelectedJobId }) => {
   return (
     <>
-      {searchResults &&
+      {searchResults.isArray && searchResults &&
         searchResults.map((item, index) => {
           return <JobItem setSelectedJobId={setSelectedJobId} item={item} key={item.id} />;
         })}

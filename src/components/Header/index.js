@@ -18,11 +18,11 @@ export const HeaderStyled = styled.div`
       background-position: center;
 
       .input-container {
-        height: 55px;
+        //height: 55px;
         width: 800px;
         background-color: #fff;
         border-radius: 6px;
-        padding: 3px 20px;
+        padding: 6px;
         display: flex;
         align-items: center;
         justify-content: space-between;

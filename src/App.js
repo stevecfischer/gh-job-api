@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { connect } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import Pagination from './components/Pagination';
 import SidebarJob from './components/SidebarJob';
 import Header from './components/Header';
@@ -9,8 +9,10 @@ import { AppStyled } from './AppStyled';
 import { MainStyled } from './components/Main/MainStyled';
 import JobsList from './components/JobsList';
 import JobDetails from './components/JobDetails';
+import { setJobResults } from './redux/actions';
 
 function App() {
+  const dispatch = useDispatch();
   const [searchResults, setSearchResults] = useState(null);
   const [selectedJobId, setSelectedJobId] = useState(null);
   const [selectedJob, setSelectedJob] = useState(null);
@@ -30,6 +32,7 @@ function App() {
     };
 
     const res = getPositions(searchObj).then((jobs) => {
+      dispatch(setJobResults(jobs));
       setSearchResults(jobs);
     });
   }, [searchLoc, searchFT, searchDesc, pageNumber]);
